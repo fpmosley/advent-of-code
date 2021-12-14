@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
 '''
-Advent of Code 2021 - Day 3: Binary Diagnostic (Part 2) 
+Advent of Code 2021 - Day 3: Binary Diagnostic (Part 2)
 https://adventofcode.com/2021/day/3
 '''
+
 
 def find_rating(numbers, position, system="oxygen"):
     total_one_bits = 0
@@ -26,26 +27,30 @@ def find_rating(numbers, position, system="oxygen"):
     if system == 'oxygen':
         if total_one_bits >= total_zero_bits:
             return find_rating(one_bit_nums, position + 1, system)
-        else: 
-            return find_rating(zero_bit_nums, position + 1, system)
-    else:
-        if total_one_bits < total_zero_bits:
-            return find_rating(one_bit_nums, position + 1, system)
-        else: 
-            return find_rating(zero_bit_nums, position + 1, system)
+
+        return find_rating(zero_bit_nums, position + 1, system)
+
+    if total_one_bits < total_zero_bits:
+        return find_rating(one_bit_nums, position + 1, system)
+
+    return find_rating(zero_bit_nums, position + 1, system)
+
 
 filename = input("What is the input file name? ")
 
 try:
     with open(filename, "r") as file:
         numbers = file.read().splitlines()
-    
+
     oxygen_generator_rating = find_rating(numbers, 0, 'oxygen')
     co2_scrubber_rating = find_rating(numbers, 0, 'co2')
 
-    print(f"Oxygen generator rating:\t{oxygen_generator_rating} = {int(oxygen_generator_rating,2)}")
-    print(f"CO2 scrubber rating:\t\t{co2_scrubber_rating} = {int(co2_scrubber_rating,2)}")
-    print(f"Power Consumption:\t\t{int(oxygen_generator_rating, 2) * int(co2_scrubber_rating, 2)}")
+    print(
+        f"Oxygen generator rating:\t{oxygen_generator_rating} = {int(oxygen_generator_rating,2)}")
+    print(
+        f"CO2 scrubber rating:\t\t{co2_scrubber_rating} = {int(co2_scrubber_rating,2)}")
+    print(
+        f"Power Consumption:\t\t{int(oxygen_generator_rating, 2) * int(co2_scrubber_rating, 2)}")
 
-except FileNotFoundError as e:
+except FileNotFoundError:
     print(f"No such file or directory: '{filename}'")

@@ -8,7 +8,7 @@ https://adventofcode.com/2021/day/1
 filename = input("What is the input file name? ")
 
 depths = []
-index = 0 
+index = 0
 increases = 0
 try:
     with open(filename, "r") as file:
@@ -25,6 +25,7 @@ try:
                 increases += 1
             else:
                 print(f"{depth} (decreased)")
-    print(f"There are {increases} measurements that are larger than the previous measurement.")
-except FileNotFoundError as e:
+    print(
+        f"There are {increases} measurements that are larger than the previous measurement.")
+except FileNotFoundError:
     print(f"No such file or directory: '{filename}'")
