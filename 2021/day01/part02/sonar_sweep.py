@@ -5,17 +5,19 @@ Advent of Code 2021 - Day 1: Sonar Sweep
 https://adventofcode.com/2021/day/1
 '''
 
+
 def window_measurement(depths, count):
-    sum = 0
+    sum_depths = 0
     for i in range(1, 4):
-        sum += depths[count-i]
-    return sum
+        sum_depths += depths[count-i]
+    return sum_depths
+
 
 def main():
     filename = input("What is the input file name? ")
 
     depths = []
-    measurement_count = 0 
+    measurement_count = 0
     increases = 0
 
     try:
@@ -24,24 +26,27 @@ def main():
                 depth = int(line.strip())
                 depths.append(depth)
                 measurement_count += 1
-                if measurement_count == 3: 
+                if measurement_count == 3:
                     window_sum = window_measurement(depths, measurement_count)
                     print(f"{window_sum} (N/A - no previous sum)")
-                    continue
                 elif measurement_count >= 4:
-                    previous_window_sum = window_measurement(depths, measurement_count-1)
-                    current_window_sum = window_measurement(depths, measurement_count)
+                    previous_window_sum = window_measurement(
+                        depths, measurement_count-1)
+                    current_window_sum = window_measurement(
+                        depths, measurement_count)
 
-                    if current_window_sum > previous_window_sum: 
+                    if current_window_sum > previous_window_sum:
                         print(f"{current_window_sum} (increased)")
                         increases += 1
-                    elif current_window_sum == previous_window_sum: 
+                    elif current_window_sum == previous_window_sum:
                         print(f"{current_window_sum} (no change)")
                     else:
                         print(f"{current_window_sum} (decreased)")
-        print(f"There are {increases} sums that are larger than the previous sum.")
-    except FileNotFoundError as e:
+        print(
+            f"There are {increases} sums that are larger than the previous sum.")
+    except FileNotFoundError:
         print(f"No such file or directory: '{filename}'")
+
 
 if __name__ == "__main__":
     main()

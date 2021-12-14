@@ -1,26 +1,27 @@
 #!/usr/bin/env python
 
 '''
-Advent of Code 2021 - Day 2: Dive! 
+Advent of Code 2021 - Day 2: Dive!
 https://adventofcode.com/2021/day/2
 '''
+
 
 class Submarine():
     def __init__(self) -> None:
         self._depth = 0
         self._position = 0
         self._aim = 0
-    
+
     def forward(self, units):
         self._position += units
         self._depth += self._aim * units
-    
+
     def down(self, units):
         self._aim += units
-    
+
     def up(self, units):
         self._aim -= units
-    
+
     @property
     def depth(self):
         return self._depth
@@ -34,7 +35,8 @@ class Submarine():
         return self._aim
 
     def __str__(self) -> str:
-       return f"Submarine has aim '{self._aim}', position '{self._position}' and depth '{self._depth}'"
+        return f"Submarine has aim '{self._aim}', position '{self._position}' and depth '{self._depth}'"
+
 
 filename = input("What is the input file name? ")
 
@@ -54,10 +56,10 @@ try:
                 elif command == 'up':
                     sub.up(int(units))
                 else:
-                    print(f"Invalid command entered: {command}") 
-            except ValueError as e:
+                    print(f"Invalid command entered: {command}")
+            except ValueError:
                 print(f"Invalid command unit: '{units}'")
     print(sub)
     print(f"Multiplication answer: {sub.position * sub.depth}")
-except FileNotFoundError as e:
+except FileNotFoundError:
     print(f"No such file or directory: '{filename}'")

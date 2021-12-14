@@ -136,11 +136,11 @@ def main():
                 # Steps 2-5
                 analysis()
 
-                decoded_value = int(decode(output_values))
+                decoded_value = decode(output_values)
                 total_entry_value += decoded_value
                 print(f"{' '.join(output_values):<31}: {decoded_value}")
 
-        print(f"\nTotal entry values: {total_entry_value}\n")
+        print(f"\nTotal of entry values: {total_entry_value}\n")
     except FileNotFoundError:
         print(f"No such file or directory: '{filename}'")
 

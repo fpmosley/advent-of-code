@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-Advent of Code 2021 - Day 3: Binary Diagnostic (Part 1) 
+Advent of Code 2021 - Day 3: Binary Diagnostic (Part 1)
 https://adventofcode.com/2021/day/3
 '''
 
@@ -15,8 +15,9 @@ try:
         # Process the binary numbers
         for lineno, line in enumerate(file):
             bin_lst = list(line.strip())
-            if lineno == 0: 
-                total_one_bits = [0] * len(bin_lst) # Making the assumption that all binary numbers are same width
+            if lineno == 0:
+                # Making the assumption that all binary numbers are same width
+                total_one_bits = [0] * len(bin_lst)
                 total_zero_bits = [0] * len(bin_lst)
 
             for position, bin_digit in enumerate(bin_lst):
@@ -24,19 +25,19 @@ try:
                     total_one_bits[position] += 1
                 else:
                     total_zero_bits[position] += 1
-                
-                # Calculate gamma and epsilon rate 
-                bit = '1' if total_one_bits[position] > total_zero_bits[position] else '0'
+
+                # Calculate gamma and epsilon rate
+                BIT = '1' if total_one_bits[position] > total_zero_bits[position] else '0'
                 try:
-                    most_common_bit[position] = bit
+                    most_common_bit[position] = BIT
                 except IndexError:
-                    most_common_bit.insert(position, bit)
+                    most_common_bit.insert(position, BIT)
 
-    gamma_rate = ''.join(most_common_bit)
-    epsilon_rate = ''.join(['1' if i == '0' else '0' for i in gamma_rate]) 
-    print(f"Gamma rate: {gamma_rate} = {int(gamma_rate,2)}")
-    print(f"Epsilon rate: {epsilon_rate} = {int(epsilon_rate,2)}")
-    print(f"Power Consumption: {int(gamma_rate, 2) * int(epsilon_rate, 2)}")
+    GAMMA_RATE = ''.join(most_common_bit)
+    EPSILON_RATE = ''.join(['1' if i == '0' else '0' for i in GAMMA_RATE])
+    print(f"Gamma rate: {GAMMA_RATE} = {int(GAMMA_RATE,2)}")
+    print(f"Epsilon rate: {EPSILON_RATE} = {int(EPSILON_RATE,2)}")
+    print(f"Power Consumption: {int(GAMMA_RATE, 2) * int(EPSILON_RATE, 2)}")
 
-except FileNotFoundError as e:
+except FileNotFoundError:
     print(f"No such file or directory: '{filename}'")
