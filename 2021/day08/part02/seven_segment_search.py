@@ -64,10 +64,10 @@ def sort_pattern(pattern):
 '''
 Anaylsis Steps:
 1. Find unique digits and patterns by number of segments
-2. Subtract three 6 segments from 1. 1 with result is 6 and RT, RB. 1, 4, 6, 7, 8 TR, RT, RB 
-3. Subtract 2 remaining 6 segments from 4. 1 result = 0; 0 = 9 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-4. Subtract three 5 segments from 1. 0 result is 3. 1, 3, 4, 6, 7, 8 TR, RT, RB 
-5. Check 2 remaining 5 segments for RB. Found RB=5. 1, 2, 3, 4, 5, 6, 7, 8 TR, RT, RB
+2. Subtract three 6 segments from 1. 1 result in diff is 6. Segments known: right top and bottom. Digits known: 1, 4, 6, 7, 8 
+3. Subtract 2 remaining 6 segments from 4. 1 diff result = 0; empty = 9  Digits known: 0, 1, 4, 6, 7, 8, 9
+4. Subtract three 5 segments from 1. Empty result is 3. Digits known: 0, 1, 3, 4, 6, 7, 8, 9
+5. Check 2 remaining 5 segments for RB. If RB segment digit in pattern, digit is 5 else is 2. Digits known: ALL
 '''
 def analysis():
 
