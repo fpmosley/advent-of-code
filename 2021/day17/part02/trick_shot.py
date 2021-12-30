@@ -22,14 +22,14 @@ def initial_velocities(xmin, xmax, ymin, ymax) -> Tuple:
     y_high = 0
 
     for v0x in range(1, xmax + 1):  # Can assume velocity of x >= 1 and x <= xmax
-        # velocity of y > -ymin will miss the target at y=0; y<= ymin hits target at t=1
+        # velocity of y > -ymin will miss the target at y=0; y >= ymin hits target at t=1
         for v0y in range(ymin, -ymin):
             x, y = (0, 0)
             vx, vy = v0x, v0y
 
             # Check that we are in the target area
             while x <= xmax and y >= ymin:
-                # Are we in the target?
+                # Are we in the target area?
                 if x >= xmin and y <= ymax:
                     velocities.add((v0x, v0y))
                     break
