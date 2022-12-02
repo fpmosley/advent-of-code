@@ -2,7 +2,7 @@
 
 '''
 Advent of Code 2022 - Day 01: Calorie Counting (Part 2)
-https://adventofcode.com/2022/day/01
+https://adventofcode.com/2022/day/1
 '''
 
 import time
