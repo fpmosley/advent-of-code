@@ -64,7 +64,7 @@ def main():
                     process_level(level)
 
         sorted_stacks = OrderedDict(sorted(STACKS.items()))
-        top_of_stacks = [stack.pop()[1] for key, stack in sorted_stacks.items()]
+        top_of_stacks = [stack.pop()[1] for _, stack in sorted_stacks.items()]
         end = time.time()
         print(f"The crates on top of the stacks: {''.join(top_of_stacks)}")
         print(f"Execution time in seconds: {end - start}\n")

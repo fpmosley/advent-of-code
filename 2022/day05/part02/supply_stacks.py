@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-Advent of Code 2022 - Day 05: Supply Stacks (Part 1)
+Advent of Code 2022 - Day 05: Supply Stacks (Part 2)
 https://adventofcode.com/2022/day/5
 '''
 
@@ -28,8 +28,8 @@ def move_crates(step: str):
         except:
             pass
 
-    for ele in stack:
-        STACKS[destination].append(ele)
+    for crate in stack:
+        STACKS[destination].append(crate)
 
 def process_level(level: list):
     for stack_number, crate in enumerate(level):
@@ -68,7 +68,7 @@ def main():
                     process_level(level)
 
         sorted_stacks = OrderedDict(sorted(STACKS.items()))
-        top_of_stacks = [stack.pop()[1] for key, stack in sorted_stacks.items()]
+        top_of_stacks = [stack.pop()[1] for _, stack in sorted_stacks.items()]
         end = time.time()
         print(f"The crates on top of the stacks: {''.join(top_of_stacks)}")
         print(f"Execution time in seconds: {end - start}\n")
