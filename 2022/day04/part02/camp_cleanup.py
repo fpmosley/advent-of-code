@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-Advent of Code 2022 - Day 04: Camp Cleanup (Part 1)
+Advent of Code 2022 - Day 4: Camp Cleanup (Part 1)
 https://adventofcode.com/2022/day/4
 '''
 
@@ -24,7 +24,7 @@ def main():
         with open(filename, "r") as file:
 
             start = time.time()
-            fully_contained = 0
+            ranges_overlap = 0
             for line in file:
                 pairs = line.strip()
 
@@ -33,9 +33,9 @@ def main():
                 section_two = get_section(section_two_range)
 
                 if (section_one and section_two) and section_one.intersection(section_two):
-                    fully_contained += 1
+                    ranges_overlap += 1
 
-            print(f"The number of assignments that overlap: {fully_contained}")
+            print(f"The number of assignments that overlap: {ranges_overlap}")
             end = time.time()
             print(f"Execution time in seconds: {end - start}\n")
 

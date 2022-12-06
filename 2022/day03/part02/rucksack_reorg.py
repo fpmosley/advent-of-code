@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-Advent of Code 2022 - Day 03: Rucksack Reorganization (Part 2)
+Advent of Code 2022 - Day 3: Rucksack Reorganization (Part 2)
 https://adventofcode.com/2022/day/3
 '''
 
