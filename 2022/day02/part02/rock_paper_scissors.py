@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-Advent of Code 2022 - Day 02: Rock, Paper, Scissors (Part 2)
+Advent of Code 2022 - Day 2: Rock, Paper, Scissors (Part 2)
 https://adventofcode.com/2022/day/2
 '''
 
