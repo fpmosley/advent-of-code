@@ -129,3 +129,10 @@ dmypy.json
 .pyre/
 
 .DS_Store
+.vscode/settings.json
+.vscode/launch.json
+.idea/vcs.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/advent-of-code.iml
