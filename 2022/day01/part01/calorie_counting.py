@@ -8,9 +8,10 @@ https://adventofcode.com/2022/day/1
 import time
 
 def calculate_most_calories(most_calories: int, calories: list) -> int:
-   total_calories = sum(calories)
-   return total_calories if total_calories > most_calories else most_calories
-                     
+    """ Sum the calories and determine if the most calories."""
+    total_calories = sum(calories)
+    return total_calories if total_calories > most_calories else most_calories
+
 def main():
 
     filename = input("What is the input file name? ")
@@ -23,16 +24,16 @@ def main():
             calories = []
             most_calories = 0
             for line in file:
-                line = line.strip()
+                food_calories = line.strip()
 
-                if not line:
-                    most_calories = calculate_most_calories(most_calories, calories) 
+                if not food_calories:  # Blank line separates the calorie counts for each elf
+                    most_calories = calculate_most_calories(most_calories, calories)
                     calories = []
                     continue
 
-                calories.append(int(line))
-            
-            most_calories = calculate_most_calories(most_calories, calories) 
+                calories.append(int(food_calories))  # Add the food calories to list of calories
+
+            most_calories = calculate_most_calories(most_calories, calories)
 
             print(f"The most calories carried: {most_calories}")
             end = time.time()

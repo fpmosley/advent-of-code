@@ -8,7 +8,9 @@ https://adventofcode.com/2022/day/2
 import time
 
 def score_round(opponent: str, strategy: str) -> int:
+    """Score the round"""
 
+    # Table to determine outcome of opponent play vs. strategy
     outcome_table = {
         'A' : {
             'X': 'draw',
@@ -25,7 +27,7 @@ def score_round(opponent: str, strategy: str) -> int:
             'Y': 'lose',
             'Z': 'draw'
         },
-    } 
+    }
 
     shape_score = {
         'X': 1, # Rock
@@ -40,7 +42,7 @@ def score_round(opponent: str, strategy: str) -> int:
     }
 
     try:
-        outcome = outcome_table[opponent][strategy] 
+        outcome = outcome_table[opponent][strategy]
         return round_score[outcome] + shape_score[strategy]
 
     except KeyError:
@@ -60,7 +62,7 @@ def main():
                 line = line.strip()
                 opponent, strategy = line.split(' ')
                 total_score += score_round(opponent, strategy)
-            
+
             print(f"The total score: {total_score}")
             end = time.time()
             print(f"Execution time in seconds: {end - start}\n")

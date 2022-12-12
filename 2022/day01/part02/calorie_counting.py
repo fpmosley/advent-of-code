@@ -19,17 +19,19 @@ def main():
             calories = []
             calories_per_elf = []
             for line in file:
-                line = line.strip()
+                food_calories = line.strip()
 
-                if not line:
-                    calories_per_elf.append(sum(calories))
+                if not food_calories:  # Blank line separates the calorie counts for each elf
+                    calories_per_elf.append(sum(calories))  # Add the calorie sum to a list
                     calories = []
                     continue
 
-                calories.append(int(line))
+                calories.append(int(food_calories))
 
             calories_per_elf.append(sum(calories))
-            calories_per_elf.sort(reverse=True)
+            calories_per_elf.sort(reverse=True)  # Sort the list in descending order
+
+            # Slice off the first three (highest) values
             print(f"Total calories carried by top 3 elves: {sum(calories_per_elf[0:3])}")
             end = time.time()
             print(f"Execution time in seconds: {end - start}\n")
