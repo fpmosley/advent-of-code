@@ -31,8 +31,6 @@ def get_numeric_value(value: str) -> str:
             return '8'
         case 'nine':
             return '9'
-        case _:
-            return None
         
 
 def find_calibration_value(line: str) -> int:
