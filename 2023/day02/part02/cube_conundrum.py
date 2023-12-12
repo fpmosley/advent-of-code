@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-Advent of Code 2023 - Day 1: Cube Conundrum (Part 2)
+Advent of Code 2023 - Day 2: Cube Conundrum (Part 2)
 https://adventofcode.com/2023/day/2
 '''
 
